@@ -6,9 +6,10 @@ import {OrbitControls} from 'drei'
 
 export default () => {
   return (
-    <Canvas 
+    <Canvas
+      camera={{position: [10,10,10]}} 
       onCreated={({scene, gl})=>{
-        console.log(scene, gl);
+        // console.log(scene, gl);
         window.scene = scene;
         window.THREE = THREE
       }}
@@ -19,8 +20,7 @@ export default () => {
       <Box position={[1.2, 0, 0]} />
       <OrbitControls/>
       
-      <Board position={[-1.2, 0, 0]} />
-      
+      <Board/>
     </Canvas>
   )
 }
