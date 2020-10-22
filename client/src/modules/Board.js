@@ -1,42 +1,49 @@
 
-import React, { useRef, Suspense, useEffect } from 'react';
+import React, { useRef, Suspense, useEffect, useMemo, memo } from 'react';
 import * as THREE from 'three';
+import BoardSquare from './BoardSquare'
 import { getBoard } from './Game'
 
 const BlackColor = '#000';
 const WhiteColor = '#fff';
 const size = 1;
 
+function getXYPosition(i) {
+  const x = i % 8;
+  const y = Math.abs(Math.floor(i / 8) - 7);
+  return { x, y }
+}
 
-const generateGameGrid = () => {
-  const Grid = new Array(64).fill('')
-    .map((_, i)=>{
+function isBlack(i) {
+  const { x, y } = getXYPosition(i)
+  return (x + y) % 2 === 1
+}
 
-      
-
-      return i
-    })
-  return grid
+function getPosition(i) {
+  const { x, y } = getXYPosition(i)
+  const letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'][x]
+  return `${letter}${y + 1}`
 }
 
 
+const Board =  memo((props) => {
 
 
-export default (props) => {
-  
-  const boardRef = useRef();
-
-  useEffect(() => {
-    console.log(boardRef.current)
-    console.log(getBoard())
-  },[])
-
-  const geometry = new THREE.PlaneBufferGeometry(size, size, 1);
-  const material = new THREE.MeshStandardMaterial({color: BlackColor, side: THREE.DoubleSide});
-  
   return (
-    <group ref={boardRef}>
-      <mesh material={material} rotation-x={Math.PI / 2} geometry={geometry} {...props}/>
-    </group>
+    <>
+      {
+        new Array(64).fill('')
+        .map((_, i) => 
+          <BoardSquare 
+            key={i} 
+            isBlack={isBlack(i)}
+            chessPosition={getPosition(i)}
+            XYPosition={getXYPosition(i)}
+          />
+        )
+      }
+    </>
   )
-}
+})
+
+export default Board;
