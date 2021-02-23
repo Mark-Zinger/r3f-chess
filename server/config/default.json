@@ -1,6 +1,0 @@
-{
-    "port": 5000,
-    "mongoURL": "mongodb+srv://mark:DuPRqLnkBJizbCvp@cluster0.ejjif.azure.mongodb.net/app?retryWrites=true&w=majority",
-    "pass": "DuPRqLnkBJizbCvp",
-    "time": "28:55"
-}
