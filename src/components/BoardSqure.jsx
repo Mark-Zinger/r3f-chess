@@ -1,22 +1,9 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import * as THREE from 'three';
-import { Text, MeshReflectorMaterial } from '@react-three/drei';
+import { Text } from '@react-three/drei';
+import Square from './Square';
 import { threeVectorPoint, chessCordType } from '../helpers/BoardHelpers';
 
-
-
-
-const BlackMaterial = new THREE.MeshPhongMaterial({
-    color: '#0D0D0D',
-    side: THREE.DoubleSide
-});
-
-const WhiteMaterial = new THREE.MeshPhongMaterial({
-    side: THREE.DoubleSide,
-    color: '#F2F2F2'
-});
-
-const BoardSquareGeometry = new THREE.PlaneBufferGeometry(1, 1, 1);
 
 const BoardSqare = memo((props: BoardSquareType) => {
     const { isBlack, chessPosition, position } = props;
@@ -31,13 +18,7 @@ const BoardSqare = memo((props: BoardSquareType) => {
             >
                 {chessPosition}
             </Text>
-            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-                <planeGeometry args={[1, 1]} />
-                <meshPhongMaterial
-                    color={isBlack ? '#0D0D0D' : '#F2F2F2'}
-                    side={THREE.DoubleSide}
-                />
-            </mesh>
+            <Square color={isBlack ? '#222222' : '#F1E8F4'}/>
         </group>
     );
 });

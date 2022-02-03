@@ -1,23 +1,30 @@
 
-import React, { useRef } from 'react'
-import * as THREE from 'three';
 import { useAppSelector } from '../../app/hooks';
 import { selectBoard } from '../../features/board/boardSlice';
+import { getChessPosition } from '../../helpers/BoardHelpers';
 import Figure from './chessFigure';
 
 
 export default function ChessFigures() {
   
-  const { pieces } = useAppSelector(selectBoard);
+  const board = useAppSelector(selectBoard);
 
-  console.log(pieces);
+  console.log(board.flat());
 
   return (
     <>
-    { Object.keys(pieces)
-      .map(el => <Figure key={el} chessPosition={el} figureType={pieces[el]}/>)
-    }
+        {board.flat().map((el, i) => (
+            el ?
+                <Figure
+                    key={i}
+                    chessPosition={getChessPosition(i)}
+                    figureType={el.type}
+                    color={el.color}
+                />
+            : null
+        ))}
     </>
   )
+
 }
 

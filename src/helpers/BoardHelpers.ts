@@ -4,7 +4,7 @@ export type threeVectorPoint = [number,number,number];
 export type ValuesOf<T extends any[]>= T[number];
 export type chessCordType =  ValuesOf<typeof letters>;
 
-const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 export function getXYPosition(i: number): xyPoint {
     const x = i % 8;

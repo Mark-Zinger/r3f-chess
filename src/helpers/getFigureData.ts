@@ -19,7 +19,7 @@ const figureData = {
     k: { figureNode: 'Cylinder', file: 'king.gltf', offsetHeight: 0 }
 };
 
-const getFigureData = ({chessPosition, figureType}: IChessFigure): IfigureData => {
+const getFigureData = ({chessPosition, figureType, color}: IChessFigure): IfigureData => {
 
     const data = figureData[figureType.toLowerCase()]
     const position = getPosFromChessCord(chessPosition);
@@ -28,7 +28,7 @@ const getFigureData = ({chessPosition, figureType}: IChessFigure): IfigureData =
     return {
         ...data,
         position,
-        isBlack: isUpperCase(figureType),
+        isBlack: color === "b"
     };
 };
 

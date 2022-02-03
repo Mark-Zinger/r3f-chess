@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import boardReducer from '../features/board/boardSlice';
+import hoverReducer from '../features/hoverSlice';
 
 export const store = configureStore({
   reducer: {
+      hover: hoverReducer,
       board: boardReducer
   }
 });

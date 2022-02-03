@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import BoardSquare from './BoardSqure';
-import { Text, MeshReflectorMaterial } from '@react-three/drei';
 
 
 import { getNormPosFromIndex, isBlack, getChessPosition } from '../helpers/BoardHelpers';
