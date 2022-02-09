@@ -1,12 +1,13 @@
-import isUpperCase from './isUpperCase';
 import { getPosFromChessCord, threeVectorPoint } from './BoardHelpers';
 import { IChessFigure } from '../components/ChessFigures/chessFigure';
+import * as THREE from 'three';
+
 
 export interface IfigureData {
     figureNode: string;
     file: string;
     isBlack: boolean;
-    position: threeVectorPoint;
+    position: THREE.Vector3;
     offsetHeight: number;
 }
 
@@ -27,7 +28,7 @@ const getFigureData = ({chessPosition, figureType, color}: IChessFigure): Ifigur
 
     return {
         ...data,
-        position,
+        position: new THREE.Vector3(...position),
         isBlack: color === "b"
     };
 };

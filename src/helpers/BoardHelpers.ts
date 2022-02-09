@@ -37,6 +37,16 @@ export function getPosFromChessCord(chessCord: chessCordType): threeVectorPoint 
     return getNormalizePosition({ x, y: parseInt(y)-1 });
 }
 
+export function getNormalizeBoard (chessBoard) {
+    return chessBoard
+    .flat()
+    .map((element, index) => {
+        if(element == null) return element;
+        element.position = getChessPosition(index);
+        return element;
+    })
+    .filter(element => element != null);
+}
 
 
 

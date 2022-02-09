@@ -1,10 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import Chess from '../../app/game';
+import generateHashedBoardState from "./generateHashedBoardState";
+import getStateAfterMove from "./getStateAfterMove";
+import isValidMove from "./isValidMove";
 
 
 
-const initialState = Chess.board();
+const initialState = generateHashedBoardState( Chess.board() );
 console.log({ initialState });
 
 
@@ -13,10 +16,15 @@ export const BoardSlice = createSlice({
     name: 'board',
     initialState,
     reducers: {
-        move: (state, action: PayloadAction<[string, string]>) => {
-            const [from, to] = action.payload;
-            Chess.move({from, to})
-            return Chess.board();
+        move: (state, action: PayloadAction<{from: string, to: string}>) => {
+            const {from, to} = action.payload;
+            
+            if(isValidMove({from, to})) {
+                Chess.move({from, to});
+                return getStateAfterMove({from, to});
+            }
+            
+            return state;
         }
     }
 });

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 import { chessCordType } from '../helpers/BoardHelpers';
-import Chess from '../app/game';
+import Chess, {getMoves} from '../app/game';
 
 
 interface IHoverState {
@@ -19,7 +19,7 @@ export const HoverSlice = createSlice({
     initialState,
     reducers: {
         setHover: (state, action: PayloadAction<string>) => {
-            const moves = Chess.moves({ square: action.payload, verbose: true });
+            const moves = getMoves(action.payload);
             state.target = action.payload;
             state.moves = moves;
             return state; 
