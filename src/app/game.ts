@@ -2,7 +2,7 @@ import * as Chess from 'chess.js';
 
 const chess = new Chess();
 
-export const boardHashMap = new Map;
+export const boardHashMap = new Map();
 
 export const getMoves = (square) => {
   return chess.moves({square, verbose: true});
