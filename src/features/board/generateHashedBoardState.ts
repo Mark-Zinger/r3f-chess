@@ -7,7 +7,7 @@ import {getNormalizeBoard} from "../../helpers/BoardHelpers";
 
 function generateHashedBoardState(chessBoard) {
   const board = getNormalizeBoard(chessBoard)
-  console.log(board)
+
   boardHashMap.clear();
   
   board.map(element => {

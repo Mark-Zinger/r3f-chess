@@ -3,7 +3,7 @@ import { selectHover } from '../features/hoverSlice';
 import Square from './Square';
 import { getPosFromChessCord } from '../helpers/BoardHelpers';
 import {selectSelected, unSelected} from "../features/selectedSlice";
-import {useCallback} from "react";
+import normalizePromotionMoves from "../helpers/normalizePromotionMoves";
 import {move} from "../features/board/boardSlice";
 
 const MovesView = () => {
@@ -13,19 +13,20 @@ const MovesView = () => {
     const hover = useAppSelector(selectHover);
     const selected = useAppSelector(selectSelected);
     
+
     
     return (
         <> 
         {   hover.target != selected.target &&
             ///@ts-ignore
-            hover.moves.map(({to}) => (
-                <ViewSqare key={to} chessPosition={to} />
+            normalizePromotionMoves(hover.moves).map(({to}, index) => (
+                <ViewSqare key={index} chessPosition={to} />
             ))
         }
         { ///@ts-ignore
-            selected.moves.map(({to}) => (
+            normalizePromotionMoves(selected.moves).map(({to}, index) => (
               <ViewSqare
-                key={to}
+                key={index}
                 chessPosition={to}
                 onClick={() => {
                     dispatch(move({ from: selected.target, to }))

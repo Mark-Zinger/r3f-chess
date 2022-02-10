@@ -3,25 +3,28 @@ import { RootState } from '../../app/store';
 import Chess from '../../app/game';
 import generateHashedBoardState from "./generateHashedBoardState";
 import getStateAfterMove from "./getStateAfterMove";
-import isValidMove from "./isValidMove";
+import isValidMoveAndCheckPromotion from "./isValidMove";
+import {asyncDispatchType} from "../../middleware/asyncDispatchMiddleware";
 
 
 
 const initialState = generateHashedBoardState( Chess.board() );
-console.log({ initialState });
 
+type MovePayloadAction = {
+    type: 'board/move',
+    payload: {from: string, to: string, promotion?: string},
+    asyncDispatch: asyncDispatchType
+}
 
 
 export const BoardSlice = createSlice({
     name: 'board',
     initialState,
     reducers: {
-        move: (state, action: PayloadAction<{from: string, to: string}>) => {
-            const {from, to} = action.payload;
-            
-            if(isValidMove({from, to})) {
-                Chess.move({from, to});
-                return getStateAfterMove({from, to});
+        move: (state, action: MovePayloadAction) => {
+            if(isValidMoveAndCheckPromotion(action)) {
+                const move = Chess.move(action.payload);
+                return getStateAfterMove(move);
             }
             
             return state;
