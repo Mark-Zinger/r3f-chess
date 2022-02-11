@@ -5,6 +5,7 @@ import generateHashedBoardState, { HashedBoardType } from "./generateHashedBoard
 import getStateAfterMove from "./getStateAfterMove";
 import isValidMoveAndCheckPromotion from "./isValidMove";
 import {asyncDispatchType} from "../../middleware/asyncDispatchMiddleware";
+import {updateTurn} from "../turnSlice";
 
 
 
@@ -23,6 +24,7 @@ export const BoardSlice = createSlice({
         move: (state, action: any) => {
             if(isValidMoveAndCheckPromotion(action)) {
                 const move = Chess.move(action.payload);
+                action.asyncDispatch(updateTurn());
                 return getStateAfterMove(move);
             }
             

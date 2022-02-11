@@ -1,14 +1,17 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
+import asyncDispatchMiddleware from "../middleware/asyncDispatchMiddleware";
+
 import boardReducer from '../features/board/boardSlice';
 import hoverReducer from '../features/hoverSlice';
 import selectedReducer from "../features/selectedSlice";
 import promotionReducer from "../features/promotionSlice";
-import asyncDispatchMiddleware from "../middleware/asyncDispatchMiddleware";
+import turnReducer from "../features/turnSlice";
 
 export const store = configureStore({
   reducer: {
     hover: hoverReducer,
     selected: selectedReducer,
+    turn: turnReducer,
     promotion: promotionReducer,
     board: boardReducer
   },

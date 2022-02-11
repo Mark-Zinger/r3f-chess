@@ -16,7 +16,7 @@ export const getMoves = (square: chessCordType) => {
 }
 
 //@ts-ignore
-window['chess'] = chess; window['hashMap'] = boardHashMap;
+window['chess'] = chess; window['hashMap'] = boardHashMap; // need to debug
 
 export default chess;
 

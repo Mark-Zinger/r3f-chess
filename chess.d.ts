@@ -112,7 +112,7 @@ declare module 'chess.js' {
     
     ascii(): string;
     
-    turn(): string;
+    turn(): ChessJSTypes.ChessColor
     
     move(move: string | Move, options?: MoveOptions): Move;
     

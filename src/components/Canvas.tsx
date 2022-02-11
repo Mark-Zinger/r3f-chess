@@ -1,13 +1,12 @@
 import {Provider} from 'react-redux';
 import { store } from '../app/store'
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import { Environment  } from '@react-three/drei';
 
 import Board from './Board';
 import ChessFigures from './ChessFigures';
 import MovesView from './MovesView';
-
+import CameraControls from "./CameraControls";
 
 
 
@@ -26,7 +25,7 @@ function AppCanvas () {
                 <pointLight position={[10, 10, 10]} />
                 <pointLight position={[-10, 10, -10]} />
 
-                <OrbitControls />
+                <CameraControls />
                 <ChessFigures />
                 <Board />
                 <MovesView/>
