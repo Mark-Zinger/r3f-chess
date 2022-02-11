@@ -1,19 +1,18 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import Chess from '../../app/game';
-import generateHashedBoardState from "./generateHashedBoardState";
+import generateHashedBoardState, { HashedBoardType } from "./generateHashedBoardState";
 import getStateAfterMove from "./getStateAfterMove";
 import isValidMoveAndCheckPromotion from "./isValidMove";
 import {asyncDispatchType} from "../../middleware/asyncDispatchMiddleware";
 
 
 
-const initialState = generateHashedBoardState( Chess.board() );
+const initialState: HashedBoardType = generateHashedBoardState( Chess.board() );
 
-type MovePayloadAction = {
-    type: 'board/move',
-    payload: {from: string, to: string, promotion?: string},
-    asyncDispatch: asyncDispatchType
+export interface MovePayloadAction {
+    asyncDispatch: asyncDispatchType;
+    payload : {from: string, to: string, promotion?: string};
 }
 
 
@@ -21,7 +20,7 @@ export const BoardSlice = createSlice({
     name: 'board',
     initialState,
     reducers: {
-        move: (state, action: MovePayloadAction) => {
+        move: (state, action: any) => {
             if(isValidMoveAndCheckPromotion(action)) {
                 const move = Chess.move(action.payload);
                 return getStateAfterMove(move);

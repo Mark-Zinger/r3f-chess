@@ -1,12 +1,13 @@
 import chess from "../../app/game";
-import {store} from "../../app/store";
 import {setPromotion} from "../promotionSlice";
+import {MovePayloadAction} from "./boardSlice";
+import {Move} from "../../../chess";
 
 
-function isValidMoveAndCheckPromotion ({payload, asyncDispatch}) {
+function isValidMoveAndCheckPromotion ({payload, asyncDispatch}: MovePayloadAction) {
   const {from, to, promotion=false} = payload;
   const moves = chess.moves({ verbose: true } );
-  const result = moves.find( move => move.from === from && move.to === to);
+  const result = moves.find( (move: Move) => move.from === from && move.to === to);
   
   if(checkPromotion(promotion, result)) {
     console.log('NeedPromotion');
@@ -19,7 +20,7 @@ function isValidMoveAndCheckPromotion ({payload, asyncDispatch}) {
 }
 
 
-function checkPromotion ( promotion, result) {
+function checkPromotion ( promotion: string | boolean, result: Move) {
   const needPromption = result && !!result.promotion;
   return (!!promotion === false) && (!!needPromption === true )
 }

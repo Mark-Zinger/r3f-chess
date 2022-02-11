@@ -1,23 +1,35 @@
 import {v4 as uuidv4} from 'uuid';
 import { boardHashMap } from "../../app/game";
-import {getNormalizeBoard} from "../../helpers/BoardHelpers";
+import {getNormalizeBoard, noralizedBoardSqare} from "../../helpers/BoardHelpers";
+import {ChessBoardType, ChessPiece} from "../../../chess";
+
+
+export type HashedBoardType = IHashedSqare[]
+
+export interface IHashedSqare extends noralizedBoardSqare {
+  key: string;
+  isDie: boolean;
+}
 
 
 
 
-function generateHashedBoardState(chessBoard) {
+function generateHashedBoardState(chessBoard: ChessBoardType):HashedBoardType {
   const board = getNormalizeBoard(chessBoard)
 
   boardHashMap.clear();
   
-  board.map(element => {
-    element.key = uuidv4()
-    element.isDie = false;
-    boardHashMap.set(element.position, element);
-    return element;
+  const hashedBoard = board.map((element  )  => {
+    const hashedSqare: IHashedSqare = {
+      ...element,
+      key: uuidv4(),
+      isDie: false
+    };
+    boardHashMap.set(hashedSqare.position, hashedSqare);
+    return hashedSqare;
   });
   
-  return board
+  return hashedBoard
 }
 
 export default generateHashedBoardState;

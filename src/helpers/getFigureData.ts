@@ -22,7 +22,7 @@ const figureData = {
 
 const getFigureData = ({chessPosition, figureType, color}: IChessFigure): IfigureData => {
 
-    const data = figureData[figureType.toLowerCase()]
+    const data = figureData[figureType.toLocaleLowerCase() as keyof typeof figureData]
     const position = getPosFromChessCord(chessPosition);
     position[1] = data.offsetHeight;
 

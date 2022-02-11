@@ -1,10 +1,21 @@
+import {ChessBoardType, ChessPiece} from "../../chess";
+
 export type xyPoint = { x: number; y: number };
 export type threeVectorPoint = [number,number,number];
 
 export type ValuesOf<T extends any[]>= T[number];
-export type chessCordType =  ValuesOf<typeof letters>;
 
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+const chessCords = letters.map(
+  letter =>
+    new Array(8)
+    .fill('')
+    .map((_,index) => letter+index)
+).flat();
+
+export type chessCordType =  ValuesOf<typeof chessCords>;
+
 
 export function getXYPosition(i: number): xyPoint {
     const x = i % 8;
@@ -17,7 +28,7 @@ export function isBlack(i: number): boolean {
     return (x + y) % 2 === 1;
 }
 
-export function getChessPosition(i: number):string {
+export function getChessPosition(i: number):chessCordType {
     const { x, y } = getXYPosition(i);
     const letter = letters[x];
     return `${letter}${y + 1}`;
@@ -37,15 +48,24 @@ export function getPosFromChessCord(chessCord: chessCordType): threeVectorPoint 
     return getNormalizePosition({ x, y: parseInt(y)-1 });
 }
 
-export function getNormalizeBoard (chessBoard) {
-    return chessBoard
+export interface noralizedBoardSqare extends ChessPiece {
+    position: chessCordType
+}
+
+
+
+export function getNormalizeBoard (chessBoard: ChessBoardType):noralizedBoardSqare[] {
+    const normalizeBpard = chessBoard
     .flat()
     .map((element, index) => {
         if(element == null) return element;
-        element.position = getChessPosition(index);
+        
+        (element as noralizedBoardSqare).position = getChessPosition(index);
         return element;
     })
     .filter(element => element != null);
+    
+    return (normalizeBpard as noralizedBoardSqare[])
 }
 
 

@@ -1,12 +1,14 @@
 import {getNormalizeBoard} from "../../helpers/BoardHelpers";
 import {boardHashMap} from "../../app/game";
 import chess from "../../app/game";
+import {IHashedSqare} from "./generateHashedBoardState";
+import {Move} from "../../../chess";
 
-function getStateAfterMove (move) {
+function getStateAfterMove (move: Move) {
   const {from, to} = move;
   const board = getNormalizeBoard( chess.board() );
   const key = boardHashMap.get(from).key;
-  const newElement = board.find( el => el.position === to);
+  const newElement = board.find( el => el.position === to) as IHashedSqare;
   
   newElement.key = key;
   newElement.isDie = false;
@@ -26,10 +28,10 @@ function getStateAfterMove (move) {
 }
 
 
-function castingHandler( move ) {
+function castingHandler( move: Move ) {
   const {san, to } = move;
   
-  function moveRockOnHashMap (from, to) {
+  function moveRockOnHashMap (from: string, to: string) {
     const prevElement = boardHashMap.get(from);
     
     boardHashMap.set(to , {...prevElement, position: to});

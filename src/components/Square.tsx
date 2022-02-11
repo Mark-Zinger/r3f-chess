@@ -1,13 +1,15 @@
 import * as THREE from 'three';
+import {threeVectorPoint} from "../helpers/BoardHelpers";
+import {ThreeEvent} from "@react-three/fiber";
 
 
-const Square = (props) => {
+const Square = (props: SquareProps) => {
 
     const {
         color,
         position=null,
         opacity=1,
-        onClick=Function.prototype
+        onClick=()=>{}
     } = props
 
     return (
@@ -25,6 +27,13 @@ const Square = (props) => {
             />
         </mesh>
     )
+}
+
+interface SquareProps {
+    color: string;
+    position?: threeVectorPoint;
+    opacity: number;
+    onClick?: (event: ThreeEvent<MouseEvent>) => void
 }
 
 export default Square

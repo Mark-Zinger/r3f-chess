@@ -1,7 +1,7 @@
+import {Move} from "../../chess";
 
 
-
-const normalizePromotionMoves = (moves) => {
+const normalizePromotionMoves = (moves:Move[]) => {
   const isPromotionMove = moves.find(move => !!move.promotion);
   if(isPromotionMove) {
     const duplicates = new Set();

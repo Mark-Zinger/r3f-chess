@@ -2,8 +2,7 @@ import {useCallback, useRef} from "react";
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectHover, setHover, unHover } from '../../features/hoverSlice';
-import { selectSelected, setSelected, unSelected } from "../../features/selectedSlice";
-import { move } from '../../features/board/boardSlice';
+import { selectSelected, setSelected } from "../../features/selectedSlice";
 
 import { DreiGLTF } from '../../types/DreiGLTF';
 import * as THREE from 'three';
@@ -41,10 +40,12 @@ function ChessFigure(props: IChessFigure) {
     },[chessPosition])
 
     useFrame(()=>{
-        figureRef.current.position.lerp(position, 0.15)
-        //die logic
-        figureRef.current.scale.lerp( (isDie ? dieV : aliveV ), 0.15 )
-        materialRef.current.opacity = lerp(materialRef.current.opacity, isDie? 0 : 1, 0.15)
+        if(figureRef.current && materialRef.current){
+            figureRef.current.position.lerp(position, 0.15)
+            //die logic
+            figureRef.current.scale.lerp( (isDie ? dieV : aliveV ), 0.15 )
+            materialRef.current.opacity = lerp(materialRef.current.opacity, isDie? 0 : 1, 0.15)
+        }
     })
 
     return (
