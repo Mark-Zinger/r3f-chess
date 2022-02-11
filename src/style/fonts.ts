@@ -14,9 +14,9 @@ export type fontNameType = keyof typeof fonts
 
 
 const fonts = {
-    Cuprum: {
-        family: 'Cuprum',
-        weights: [400, 500, 700],
+    Lovelace: {
+        family: 'Lovelace',
+        weights: [ 500, 700 ],
         format: 'ttf'
     }
 };

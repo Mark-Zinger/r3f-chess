@@ -1,9 +1,10 @@
 const colors = {
-    primary: '#0295FE',
-    secondary: '#FE6E07',
-    hoverSecondaryButton: '#FE8C07',
+    primary: '#142d51',
+    secondary: '#f0bb81',
+    black: '#f0bb81',
     white: '#F9F9F9',
-    grey: '#5C5B61'
+    menuBackground: '#142d51bd',
+    grey: '#6d728f'
 }
 
 export type colorType = keyof typeof colors;

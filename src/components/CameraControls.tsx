@@ -17,11 +17,11 @@ const cameraPositions = {
 function CameraControls() {
   
   const { value } = useAppSelector(selectTurn);
-  const {camera} = useThree();
+  const { camera } = useThree();
   
-  useEffect(() => {
-    camera.position.copy(cameraPositions[value])
-  },[value])
+  // useEffect(() => {
+  //   camera.position.copy(cameraPositions[value])
+  // },[value])
   
   
   return <OrbitControls/>;

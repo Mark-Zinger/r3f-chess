@@ -5,11 +5,11 @@ import fonts, {fontNameType} from "./fonts";
 import typography from "./fontVariants";
 
 
-const theme:ITheme = {
+const theme: ITheme = {
     colors,
     breakpoints,
     fonts,
-    defaultFont: 'Cuprum',
+    defaultFont: 'Lovelace',
     typography,
 };
 

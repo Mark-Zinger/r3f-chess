@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ITheme }>(
   ({ theme: { defaultFont, colors } }) => css`    
     body {
         font-family: '${defaultFont}';
+        font-weight: 500;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
