@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import {threeVectorPoint} from "../helpers/BoardHelpers";
 import {ThreeEvent} from "@react-three/fiber";
 
 
@@ -7,7 +6,7 @@ const Square = (props: SquareProps) => {
 
     const {
         color,
-        position=null,
+        position,
         opacity=1,
         onClick=()=>{}
     } = props
@@ -15,7 +14,7 @@ const Square = (props: SquareProps) => {
     return (
         <mesh 
             rotation={[-Math.PI / 2, 0, 0]}
-            position={position ? position : [0,0,0]}
+            position={position}
             onClick={onClick}
         >
             <planeGeometry args={[1, 1]} />
@@ -31,7 +30,7 @@ const Square = (props: SquareProps) => {
 
 interface SquareProps {
     color: string;
-    position?: threeVectorPoint;
+    position: THREE.Vector3;
     opacity: number;
     onClick?: (event: ThreeEvent<MouseEvent>) => void
 }

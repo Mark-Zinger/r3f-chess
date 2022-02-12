@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import {ChessBoardType, ChessPiece} from "../../chess";
 
 export type xyPoint = { x: number; y: number };
@@ -42,10 +43,10 @@ export function getNormPosFromIndex(i: number): threeVectorPoint {
     return getNormalizePosition(getXYPosition(i));
 }
 
-export function getPosFromChessCord(chessCord: chessCordType): threeVectorPoint {
+export function getPosFromChessCord(chessCord: chessCordType): THREE.Vector3 {
     const [letter, y] = chessCord.split('');
     const x = letters.indexOf(letter);
-    return getNormalizePosition({ x, y: parseInt(y)-1 });
+    return new THREE.Vector3(...getNormalizePosition({ x, y: parseInt(y)-1 }));
 }
 
 export interface noralizedBoardSqare extends ChessPiece {

@@ -41,7 +41,7 @@ const MovesView = () => {
 const ViewSqare = ({chessPosition, onClick}:IViewSqare) => {
 
     const position = getPosFromChessCord(chessPosition);
-    position[1] = 0.001;
+    position.y = 0.001;
 
 
     return (

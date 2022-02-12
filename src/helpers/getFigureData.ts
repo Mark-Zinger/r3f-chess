@@ -1,34 +1,25 @@
-import { getPosFromChessCord, threeVectorPoint } from './BoardHelpers';
 import { IChessFigure } from '../components/ChessFigures/chessFigure';
-import * as THREE from 'three';
-
+import {FigureMeshProps} from "../components/ChessFigures/FigureMesh";
 
 export interface IfigureData {
-    figureNode: string;
     file: string;
     isBlack: boolean;
-    position: THREE.Vector3;
-    offsetHeight: number;
 }
 
-const figureData = {
-    p: { figureNode: 'p', file: 'pawn.gltf', offsetHeight: 0 },
-    n: { figureNode: 'n', file: 'knight.gltf', offsetHeight: 0 },
-    b: { figureNode: 'b', file: 'bishop.gltf', offsetHeight: 0 },
-    r: { figureNode: 'r', file: 'rook.gltf', offsetHeight: 0 },
-    q: { figureNode: 'q', file: 'queen.gltf', offsetHeight: 0 },
-    k: { figureNode: 'k', file: 'king.gltf', offsetHeight: 0 }
+const figurePaths = {
+    p: 'pawn.gltf',
+    n: 'knight.gltf',
+    b: 'bishop.gltf',
+    r: 'rook.gltf',
+    q: 'queen.gltf',
+    k: 'king.gltf'
 };
 
-const getFigureData = ({chessPosition, figureType, color}: IChessFigure): IfigureData => {
-
-    const data = figureData[figureType.toLocaleLowerCase() as keyof typeof figureData]
-    const position = getPosFromChessCord(chessPosition);
-    position[1] = data.offsetHeight;
+const getFigureData = ({ type, color}: FigureMeshProps): IfigureData => {
+    const file = figurePaths[type]
 
     return {
-        ...data,
-        position: new THREE.Vector3(...position),
+        file,
         isBlack: color === "b"
     };
 };

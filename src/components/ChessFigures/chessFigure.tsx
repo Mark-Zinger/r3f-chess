@@ -12,6 +12,13 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from '@react-three/drei';
 
 import getFigureData from '../../helpers/getFigureData';
+import {FigureType} from "../../../chess";
+import {ChessColors} from "../../features/game/GameState";
+import {chessCordType, getPosFromChessCord} from "../../helpers/BoardHelpers";
+import FigureMesh from "./FigureMesh";
+
+
+
 
 const aliveV = new THREE.Vector3(1,1,1);
 const dieV = new THREE.Vector3(0,0,0)
@@ -22,9 +29,8 @@ function ChessFigure(props: IChessFigure) {
     const figureRef = useRef<THREE.Mesh>();
     const materialRef = useRef<THREE.MeshPhongMaterial>();
     
-    const { chessPosition, isDie } = props;
-    const { file, figureNode, isBlack, position } = getFigureData(props);    
-    const { nodes } = useGLTF(`/resources/${file}`) as DreiGLTF;
+    const { chessPosition, isDie, type, color } = props;
+    const position = getPosFromChessCord(chessPosition)
     
     const hover = useAppSelector(selectHover);
     const selected = useAppSelector(selectSelected);
@@ -49,28 +55,24 @@ function ChessFigure(props: IChessFigure) {
 
     return (
         <group ref={figureRef}>
-            <mesh
-                geometry={nodes[figureNode].geometry}
-                position={[0, 0, 0]}
-                rotation={[0, 0, 0]}
-                scale={0.15}
+            <FigureMesh
+                type={type}
+                color={color}
                 onPointerOver={() => dispatch(setHover(chessPosition))}
                 onPointerOut={() => dispatch(unHover())}
-                
                 onClick={onClickHandler}
-            >
-                <meshPhongMaterial ref={materialRef} color={isBlack ? '#222222' : '#A5A5A5'} transparent />
-            </mesh>
+                //@ts-ignore
+                ref={materialRef}
+            />
         </group>
     );
 }
 
-// useGLTF.preload('/resources/king.gltf');
 
 export interface IChessFigure {
-    chessPosition: string;
-    figureType: string;
-    color: string;
+    chessPosition: chessCordType;
+    type: FigureType;
+    color: ChessColors;
     isDie: boolean;
 }
 

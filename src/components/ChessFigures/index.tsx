@@ -15,7 +15,7 @@ export default function ChessFigures() {
         <Figure
           key={key}
           chessPosition={position}
-          figureType={type}
+          type={type}
           color={color}
           isDie={isDie}
         />

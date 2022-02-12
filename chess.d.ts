@@ -1,11 +1,9 @@
 import * as Chess from 'chess.js';
 
-declare namespace ChessJSTypes {
-  type ChessType = 'p' | 'n' | 'b' | 'r' | 'q' | 'k';
-  
-  type ChessColor = 'b' | 'w';
-  
-}
+
+export type FigureType = 'p' | 'n' | 'b' | 'r' | 'q' | 'k';
+
+export type ChessColor = 'b' | 'w';
 
 type ChessBoardType = ChessPiece[][];
 
@@ -58,8 +56,8 @@ interface ValidationObject {
 }
 
 interface ChessPiece {
-  type: ChessJSTypes.ChessType;
-  color: ChessJSTypes.ChessColor;
+  type: FigureType;
+  color: ChessColor;
 }
 
 declare module 'chess.js' {

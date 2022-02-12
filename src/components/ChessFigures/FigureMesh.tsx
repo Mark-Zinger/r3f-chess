@@ -1,21 +1,35 @@
-import {setHover, unHover} from "../../features/hoverSlice";
+import {forwardRef} from "react";
+
+import getFigureData from "../../helpers/getFigureData";
+import {useGLTF} from "@react-three/drei";
+import {DreiGLTF} from "../../types/DreiGLTF";
+import {FigureType} from "../../../chess";
+import {ChessColors} from "../../features/game/GameState";
+import * as THREE from "three";
 
 
-const FigureMesh = (props: any) => {
-  
-  
-  return ( null
-    // <mesh
-    //   geometry={nodes[figureNode].geometry}
-    //   position={[0, 0.55, 0]}
-    //   rotation={[0, -Math.PI / 8, 0]}
-    //   scale={0.15}
-    //   onPointerOver={() => dispatch(setHover(chessPosition))}
-    //   onPointerOut={() => dispatch(unHover())}
-    //
-    //   onClick={onClickHandler}
-    // >
-    //   <meshPhongMaterial ref={materialRef} color={isBlack ? '#222222' : '#A5A5A5'} transparent />
-    // </mesh>
-  )
+export interface FigureMeshProps {
+  type: FigureType
+  color: ChessColors
 }
+
+const FigureMesh = forwardRef<THREE.MeshPhongMaterial,FigureMeshProps>(
+  (props: FigureMeshProps, materialRef) => {
+    const { type, ...ownProps } = props;
+    const { file, isBlack } = getFigureData(props);
+    const { nodes } = useGLTF(`/resources/${file}`) as DreiGLTF;
+    
+    
+    return (
+      <mesh
+        geometry={nodes[type].geometry}
+        rotation={[0, 0, 0]}
+        scale={0.15}
+        {...ownProps}
+      >
+        <meshPhongMaterial ref={materialRef} color={isBlack ? '#222222' : '#A5A5A5'} transparent />
+      </mesh>
+    )
+})
+
+export default FigureMesh;
