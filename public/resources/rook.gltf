@@ -1,6 +1,6 @@
 {
     "asset" : {
-        "generator" : "Khronos glTF Blender I/O v1.3.48",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
         "version" : "2.0"
     },
     "scene" : 0,
@@ -15,22 +15,17 @@
     "nodes" : [
         {
             "mesh" : 0,
-            "name" : "Chess_Rook",
+            "name" : "r",
             "scale" : [
                 0.3461514115333557,
                 0.3461514115333557,
                 0.3461514115333557
-            ],
-            "translation" : [
-                0,
-                0.9547643661499023,
-                0
             ]
         }
     ],
     "meshes" : [
         {
-            "name" : "Chess_Rook",
+            "name" : "r",
             "primitives" : [
                 {
                     "attributes" : {
@@ -46,15 +41,15 @@
         {
             "bufferView" : 0,
             "componentType" : 5126,
-            "count" : 464,
+            "count" : 684,
             "max" : [
                 1.9627466201782227,
-                3.070098400115967,
+                5.80546760559082,
                 1.9627469778060913
             ],
             "min" : [
                 -1.9627466201782227,
-                -2.7254467010498047,
+                0.009922266006469727,
                 -1.9627463817596436
             ],
             "type" : "VEC3"
@@ -62,7 +57,7 @@
         {
             "bufferView" : 1,
             "componentType" : 5126,
-            "count" : 464,
+            "count" : 684,
             "type" : "VEC3"
         },
         {
@@ -75,23 +70,23 @@
     "bufferViews" : [
         {
             "buffer" : 0,
-            "byteLength" : 5568,
+            "byteLength" : 8208,
             "byteOffset" : 0
         },
         {
             "buffer" : 0,
-            "byteLength" : 5568,
-            "byteOffset" : 5568
+            "byteLength" : 8208,
+            "byteOffset" : 8208
         },
         {
             "buffer" : 0,
             "byteLength" : 1416,
-            "byteOffset" : 11136
+            "byteOffset" : 16416
         }
     ],
     "buffers" : [
         {
-            "byteLength" : 12552,
+            "byteLength" : 17832,
             "uri" : "rook.bin"
         }
     ]

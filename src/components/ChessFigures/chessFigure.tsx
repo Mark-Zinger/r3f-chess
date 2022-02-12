@@ -51,8 +51,8 @@ function ChessFigure(props: IChessFigure) {
         <group ref={figureRef}>
             <mesh
                 geometry={nodes[figureNode].geometry}
-                position={[0, 0.55, 0]}
-                rotation={[0, -Math.PI / 8, 0]}
+                position={[0, 0, 0]}
+                rotation={[0, 0, 0]}
                 scale={0.15}
                 onPointerOver={() => dispatch(setHover(chessPosition))}
                 onPointerOut={() => dispatch(unHover())}
