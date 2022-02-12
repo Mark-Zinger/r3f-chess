@@ -1,21 +1,21 @@
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import { move } from "../../features/board/boardSlice";
-import {selectPromotion, unPromotion} from "../../features/promotionSlice";
+import {move, selectGame, unPromotion} from "../../features/game/gameSlice";
 import {useCallback} from "react";
+import {PromotionType} from "../../features/game/GameState";
 
 
 function PromotionModal() {
   
   const dispatch = useAppDispatch()
-  const {target} = useAppSelector(selectPromotion);
+  const promotionMove = useAppSelector(selectGame).promotion;
   
-  const onClickHandler = useCallback((promotion)=>{
-    dispatch(move({...target, promotion}));
+  const onClickHandler = useCallback((promotion: PromotionType)=>{
+    if(promotionMove) dispatch(move({...promotionMove, promotion}));
     dispatch(unPromotion());
-  },[target])
+  },[promotionMove])
   
   return (
-    target ?
+    promotionMove ?
       <div style={{position: "fixed", top: 0, left:0, zIndex: 2}}>
         <button onClick={ () => onClickHandler('n') }>Конь</button>
         <button onClick={ () => onClickHandler('b') }>Слон</button>

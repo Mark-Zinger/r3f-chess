@@ -13,9 +13,8 @@ import { useGLTF } from '@react-three/drei';
 
 import getFigureData from '../../helpers/getFigureData';
 
-
-
-
+const aliveV = new THREE.Vector3(1,1,1);
+const dieV = new THREE.Vector3(0,0,0)
 
 
 function ChessFigure(props: IChessFigure) {
@@ -66,11 +65,7 @@ function ChessFigure(props: IChessFigure) {
     );
 }
 
-useGLTF.preload('/resources/king.gltf');
-
-
-const aliveV = new THREE.Vector3(1,1,1);
-const dieV = new THREE.Vector3(0,0,0)
+// useGLTF.preload('/resources/king.gltf');
 
 export interface IChessFigure {
     chessPosition: string;

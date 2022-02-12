@@ -2,9 +2,9 @@ import { OrbitControls } from '@react-three/drei';
 import {useFrame, useThree} from "@react-three/fiber";
 import * as THREE from 'three';
 import {useAppSelector} from "../app/hooks";
-import {selectBoard} from "../features/board/boardSlice";
-import {selectTurn} from "../features/turnSlice";
-import {useEffect} from "react";
+import {selectGame} from "../features/game/gameSlice";
+
+
 
 
 
@@ -16,11 +16,11 @@ const cameraPositions = {
 
 function CameraControls() {
   
-  const { value } = useAppSelector(selectTurn);
+  const { turn } = useAppSelector(selectGame);
   const { camera } = useThree();
   
   // useEffect(() => {
-  //   camera.position.copy(cameraPositions[value])
+  //   camera.position.copy(cameraPositions[turn])
   // },[value])
   
   

@@ -4,7 +4,7 @@ import chess from "../../app/game";
 import {IHashedSqare} from "./generateHashedBoardState";
 import {Move} from "../../../chess";
 
-function getStateAfterMove (move: Move) {
+function getBoardAfterMove (move: Move) {
   const {from, to} = move;
   const board = getNormalizeBoard( chess.board() );
   const key = boardHashMap.get(from).key;
@@ -51,4 +51,4 @@ function castingHandler( move: Move ) {
 
 
 
-export default getStateAfterMove
+export default getBoardAfterMove

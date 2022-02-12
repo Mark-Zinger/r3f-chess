@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../app/store';
 import { chessCordType } from '../helpers/BoardHelpers';
-import Chess, {getMoves} from '../app/game';
+import { getMoves } from '../app/game';
+import { ChessMove } from "./game/GameState";
 
 
 interface IHoverState {
     target: null | chessCordType;
-    moves: [] | chessCordType[];
+    moves: [] | ChessMove[];
 }
 
 const initialState: IHoverState = {

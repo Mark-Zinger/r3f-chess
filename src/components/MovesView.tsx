@@ -1,10 +1,10 @@
 import {useAppDispatch, useAppSelector} from '../app/hooks';
 import { selectHover } from '../features/hoverSlice';
 import Square from './Square';
-import { getPosFromChessCord } from '../helpers/BoardHelpers';
+import {chessCordType, getPosFromChessCord} from '../helpers/BoardHelpers';
 import {selectSelected, unSelected} from "../features/selectedSlice";
 import normalizePromotionMoves from "../helpers/normalizePromotionMoves";
-import {move} from "../features/board/boardSlice";
+import {move} from "../features/game/gameSlice";
 
 const MovesView = () => {
 
@@ -18,18 +18,17 @@ const MovesView = () => {
     return (
         <> 
         {   hover.target != selected.target &&
-            ///@ts-ignore
             normalizePromotionMoves(hover.moves).map(({to}, index) => (
                 <ViewSqare key={index} chessPosition={to} />
             ))
         }
-        { ///@ts-ignore
+        {   selected.target &&
             normalizePromotionMoves(selected.moves).map(({to}, index) => (
               <ViewSqare
                 key={index}
                 chessPosition={to}
                 onClick={() => {
-                    dispatch(move({ from: selected.target, to }))
+                    dispatch(move({ from: selected.target as chessCordType, to }))
                     dispatch(unSelected())
                 }}
               />
