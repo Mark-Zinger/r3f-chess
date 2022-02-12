@@ -13,7 +13,7 @@ function MainMenu () {
     const dispatch = useAppDispatch();
     const { mode } = useAppSelector(selectGame);
     
-    const selectGameMode = ( gamemode: GameMode) => dispatch(initGame({mode: gamemode, fen: 'rnbqkbnr/p1P3pp/8/1p1ppp2/2P5/8/PP2PPPP/RNBQKBNR w KQkq f6 0 6'}));
+    const selectGameMode = ( gamemode: GameMode) => dispatch(initGame({mode: gamemode}));
     
   
     return (

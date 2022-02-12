@@ -47,7 +47,7 @@ const Modal:FC<ModalProps> = (props) => {
 
 
 const ModalBoxAnimate = {
-  initial: { opacity: 0, y: 60, x: '-50%', scale: 0.5 },
+  initial: { opacity: 0, y: 60, x: '-50%' },
   animate: {
     opacity: 1,
     y: '-50%',
@@ -55,7 +55,7 @@ const ModalBoxAnimate = {
     scale: 1,
     transition: { type: "spring", stiffness: 300 }
   },
-  exit: { opacity: 0, x: '-50%', scale: 0,  transition: { stiffness: 300 }}
+  exit: { opacity: 0, x: '-50%', scale: 0, transition: { stiffness: 300 }}
 }
 
 export default Modal;

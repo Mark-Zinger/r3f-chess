@@ -1,5 +1,6 @@
 import { IChessFigure } from '../components/ChessFigures/chessFigure';
 import {FigureMeshProps} from "../components/ChessFigures/FigureMesh";
+import {ChessColors} from "../features/game/GameState";
 
 export interface IfigureData {
     file: string;
@@ -15,12 +16,14 @@ const figurePaths = {
     k: 'king.gltf'
 };
 
+export const isBlackColor  = (color:ChessColors) =>  color === "b";
+
 const getFigureData = ({ type, color}: FigureMeshProps): IfigureData => {
     const file = figurePaths[type]
 
     return {
         file,
-        isBlack: color === "b"
+        isBlack: isBlackColor(color)
     };
 };
 

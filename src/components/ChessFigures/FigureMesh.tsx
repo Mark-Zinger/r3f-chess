@@ -10,11 +10,14 @@ import * as THREE from "three";
 
 export interface FigureMeshProps {
   type: FigureType
-  color: ChessColors
+  color: ChessColors,
+  scale?: number,
+  position?: THREE.Vector3 | [number,number,number];
+  rotation?: [number,number,number];
 }
 
-const FigureMesh = forwardRef<THREE.MeshPhongMaterial,FigureMeshProps>(
-  (props: FigureMeshProps, materialRef) => {
+const FigureMesh = forwardRef<THREE.Mesh,FigureMeshProps>(
+  (props: FigureMeshProps, ref) => {
     const { type, ...ownProps } = props;
     const { file, isBlack } = getFigureData(props);
     const { nodes } = useGLTF(`/resources/${file}`) as DreiGLTF;
@@ -25,9 +28,12 @@ const FigureMesh = forwardRef<THREE.MeshPhongMaterial,FigureMeshProps>(
         geometry={nodes[type].geometry}
         rotation={[0, 0, 0]}
         scale={0.15}
+        ref={ref}
+        castShadow
+        receiveShadow
         {...ownProps}
       >
-        <meshPhongMaterial ref={materialRef} color={isBlack ? '#222222' : '#A5A5A5'} transparent />
+        <meshPhongMaterial color={isBlack ? '#222222' : '#A5A5A5'} transparent />
       </mesh>
     )
 })

@@ -16,6 +16,7 @@ const Square = (props: SquareProps) => {
             rotation={[-Math.PI / 2, 0, 0]}
             position={position}
             onClick={onClick}
+            receiveShadow
         >
             <planeGeometry args={[1, 1]} />
             <meshLambertMaterial

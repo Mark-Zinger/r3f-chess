@@ -1,5 +1,9 @@
-import { Container } from "./styles";
-import {PromotionType} from "../../../../features/game/GameState";
+import { Container, PromotionButtonTitle } from "./styles";
+import {ChessColors, PromotionType} from "../../../../features/game/GameState";
+import { useAppSelector } from "../../../../app/hooks";
+import { selectGame } from "../../../../features/game/gameSlice";
+import PromotionFigure from "./PromotionFigure";
+import {useEffect, useState} from "react";
 
 interface PromotionButtonProps {
   type: PromotionType;
@@ -17,15 +21,27 @@ const figures ={
 
 const PromotionButton = (props:PromotionButtonProps) => {
   
+  const [color, setColor] = useState<ChessColors>('w')
+  
   const {
     type,
     onClick
   } = props;
   
+  const {playerColor} = useAppSelector(selectGame);
+  
+  useEffect(():any => {
+    setColor(playerColor)
+    return () => setTimeout(() => setColor(playerColor), 500 )
+  },[])
   
   return (
     <Container onClick={onClick}>
-      {figures[type]}
+      <PromotionFigure
+        type={type}
+        color={color}
+      />
+      <PromotionButtonTitle>{figures[type]}</PromotionButtonTitle>
     </Container>
   )
 }

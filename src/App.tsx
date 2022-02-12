@@ -13,7 +13,7 @@ function App() {
       <AppContainer>
           <MainMenu/>
           <Index/>
-          <Suspense fallback={null}>
+          <Suspense fallback={'Loading ...'}>
               <Canvas />
           </Suspense>
       </AppContainer>

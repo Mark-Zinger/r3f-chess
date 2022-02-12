@@ -1,4 +1,4 @@
-import {useCallback, useRef} from "react";
+import {useCallback, useContext, useEffect, useRef} from "react";
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectHover, setHover, unHover } from '../../features/hoverSlice';
@@ -11,11 +11,12 @@ import {lerp} from "three/src/math/MathUtils";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from '@react-three/drei';
 
-import getFigureData from '../../helpers/getFigureData';
+import getFigureData, {isBlackColor} from '../../helpers/getFigureData';
 import {FigureType} from "../../../chess";
 import {ChessColors} from "../../features/game/GameState";
-import {chessCordType, getPosFromChessCord} from "../../helpers/BoardHelpers";
+import {chessCordType, getPosFromChessCord,} from "../../helpers/BoardHelpers";
 import FigureMesh from "./FigureMesh";
+import {SelectContext} from "../../providers/SelectProvider";
 
 
 
@@ -26,14 +27,25 @@ const dieV = new THREE.Vector3(0,0,0)
 
 function ChessFigure(props: IChessFigure) {
     
+    const groupRef = useRef<THREE.Mesh>();
     const figureRef = useRef<THREE.Mesh>();
-    const materialRef = useRef<THREE.MeshPhongMaterial>();
     
     const { chessPosition, isDie, type, color } = props;
     const position = getPosFromChessCord(chessPosition)
+    const isBlack = isBlackColor(color);
     
     const hover = useAppSelector(selectHover);
     const selected = useAppSelector(selectSelected);
+    
+    const { onSelected } = useContext(SelectContext);
+    
+    useEffect(()=> {
+        switch (selected.target){
+            case chessPosition: onSelected(figureRef); break;
+            case null: onSelected(null)
+        }
+        
+    },[selected,chessPosition ])
     
     const dispatch = useAppDispatch();
 
@@ -45,24 +57,28 @@ function ChessFigure(props: IChessFigure) {
     },[chessPosition])
 
     useFrame(()=>{
-        if(figureRef.current && materialRef.current){
-            figureRef.current.position.lerp(position, 0.15)
+        if(groupRef.current && figureRef.current){
+            groupRef.current.position.lerp(position, 0.15)
+            
             //die logic
-            figureRef.current.scale.lerp( (isDie ? dieV : aliveV ), 0.15 )
-            materialRef.current.opacity = lerp(materialRef.current.opacity, isDie? 0 : 1, 0.15)
+            groupRef.current.scale.lerp( (isDie ? dieV : aliveV ), 0.15 )
+            //@ts-ignore
+            figureRef.current.material.opacity = lerp(figureRef.current?.material.opacity, isDie? 0 : 1, 0.15)
         }
     })
 
     return (
-        <group ref={figureRef}>
+        <group ref={groupRef}>
             <FigureMesh
                 type={type}
                 color={color}
                 onPointerOver={() => dispatch(setHover(chessPosition))}
                 onPointerOut={() => dispatch(unHover())}
                 onClick={onClickHandler}
+                rotation={[0,isBlack? Math.PI : 0, 0]}
+                castShadow
                 //@ts-ignore
-                ref={materialRef}
+                ref={figureRef}
             />
         </group>
     );

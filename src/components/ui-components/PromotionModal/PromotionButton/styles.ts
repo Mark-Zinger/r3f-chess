@@ -10,8 +10,17 @@ const Container = styled.button(
     
     border-radius: 3px;
     border: none;
+    position: relative;
     
+    font-family: inherit;
   `
 )
 
-export {Container}
+const PromotionButtonTitle = styled.h5`
+  position: absolute;
+  bottom: 10px; left: 50%;
+  
+  transform: translateX(-50%);
+`
+
+export {Container, PromotionButtonTitle}
