@@ -6,7 +6,7 @@ import {col} from "style/utils";
 
 const Container = styled.div(
   ({theme}) => css`
-    background: ${theme.colors.primary};
+    background: ${theme.colors.primaryBlack};
     position: fixed;
     left: 0; top: 0;
     height: 100vh;
@@ -19,7 +19,7 @@ const BackgroundVideo = styled.video`
   position: absolute;
   height: 100%;
   width: 100%;
-  opacity: 0.4;
+  opacity: 0.2;
   object-fit: cover;
   z-index: -1;
 `

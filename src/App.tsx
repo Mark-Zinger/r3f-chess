@@ -2,7 +2,7 @@ import Canvas from './components/Canvas';
 import { Suspense } from 'react';
 import {Provider} from "react-redux";
 import {store} from "./app/store";
-import PromotionModal from "./components/ui-components/PromotionModal";
+import Index from "./components/ui-components/PromotionModal";
 import styled from "styled-components";
 import MainMenu from "./components/ui-components/MainMenu";
 
@@ -12,7 +12,7 @@ function App() {
     <Provider store={store}>
       <AppContainer>
           <MainMenu/>
-          <PromotionModal/>
+          <Index/>
           <Suspense fallback={null}>
               <Canvas />
           </Suspense>

@@ -21,9 +21,10 @@ export const GameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
-        initGame: ( _, action: PayloadAction<GameMode>) => {
-            switch (action.payload) {
-                case 'single': return initSingleGame();
+        initGame: ( _, action: PayloadAction<{mode: GameMode, fen?: string}>) => {
+            const { mode, fen } = action.payload
+            switch (mode) {
+                case 'single': return initSingleGame(fen);
             }
         },
         
