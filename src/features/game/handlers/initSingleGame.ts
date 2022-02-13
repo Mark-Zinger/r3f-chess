@@ -11,7 +11,14 @@ function initSingleGame (fen: string = default_fen):GameState {
     turn: chess.turn(),
     playerColor: chess.turn(),
     board: generateHashedBoardState(chess.board()),
-    promotion: null
+    promotion: null,
+    check: chess.in_check(),
+    game_over: chess.game_over(),
+    checkmate: chess.in_checkmate(),
+    draw: chess.in_draw(),
+    stalemate: chess.in_stalemate(),
+    threefold_repenition: chess.in_threefold_repetition(),
+    insufficient_material: chess.insufficient_material()
   }
 }
 

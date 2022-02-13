@@ -14,7 +14,14 @@ const initialState: GameState = {
     turn: null,
     playerColor: null,
     board: null,
-    promotion: null
+    promotion: null,
+    check: false,
+    game_over: false,
+    checkmate: false,
+    draw: false,
+    stalemate: false,
+    threefold_repenition: false,
+    insufficient_material: false
 }
 
 export const GameSlice = createSlice({
@@ -41,7 +48,18 @@ export const GameSlice = createSlice({
                 
                 const move = chess.move({ from, to, promotion });
                 state.board = getBoardAfterMove(move);
+                state.check = chess.in_check();
                 state.turn = chess.turn();
+  
+  
+                if(chess.game_over()) {
+                    state.game_over = true;
+                    state.checkmate = chess.in_checkmate();
+                    state.draw = chess.in_draw();
+                    state.stalemate = chess.in_stalemate();
+                    state.threefold_repenition = chess.in_threefold_repetition();
+                    state.insufficient_material = chess.insufficient_material();
+                }
                 
                 if(state.mode === 'single') state.playerColor = chess.turn()
             }

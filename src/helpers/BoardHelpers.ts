@@ -26,7 +26,7 @@ export function getXYPosition(i: number): xyPoint {
 
 export function isBlack(i: number): boolean {
     const { x, y } = getXYPosition(i);
-    return (x + y) % 2 === 1;
+    return (x + y) % 2 !== 1;
 }
 
 export function getChessPosition(i: number):chessCordType {

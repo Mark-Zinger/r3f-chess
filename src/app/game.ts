@@ -8,6 +8,7 @@ const  Chess = require('chess.js')
 */
 
 const chess = new Chess();
+console.log(chess)
 
 export const boardHashMap = new Map();
 

@@ -13,7 +13,6 @@ const WaterMarks = () => {
         <a target="_blank" href="https://www.youtube.com/watch?v=vE6wWaoEVQA&ab_channel=EugeneBelsky">source code</a>
         <br/>
         created by <a target="_blank" href="https://github.com/Mark-Zinger">Mark Zinger</a>
-        
       </CreatedBy>
       <Sources>
         models by <a target="_blank" href="https://www.youtube.com/watch?v=vE6wWaoEVQA&ab_channel=EugeneBelsky">VioletBoom</a>

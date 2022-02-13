@@ -1,7 +1,8 @@
 import Modal from "../../ui-components/Modal";
 import {Container, Title, BurgerButton} from "./style";
-import {useAppDispatch} from "../../../app/hooks";
-import {exitGame, initGame} from "../../../features/game/gameSlice";
+import {useAppDispatch, useAppSelector} from "../../../app/hooks";
+import {exitGame, initGame, selectGame} from "../../../features/game/gameSlice";
+import GameState from "../../../features/game/GameState";
 
 interface BurgerMenuProps {
   isOpen: boolean,
@@ -15,6 +16,8 @@ const BurgerMenu = (props: BurgerMenuProps) => {
   } = props
   
   const dispatch = useAppDispatch()
+  
+  const game = useAppSelector(selectGame);
   
   const exitHandler = () => {
     dispatch(exitGame());
@@ -32,7 +35,12 @@ const BurgerMenu = (props: BurgerMenuProps) => {
       isOpen={isOpen}
     >
       <Container>
-        <Title>Меню</Title>
+        <Title>
+          { game.game_over
+            ? getGameOverTitle(game)
+            : 'Меню'
+          }
+        </Title>
         <BurgerButton
           className="font20"
           onClick={setClose}
@@ -54,6 +62,23 @@ const BurgerMenu = (props: BurgerMenuProps) => {
       </Container>
     </Modal>
   )
+}
+
+
+
+const getGameOverTitle = (game:GameState):string => {
+  const { checkmate, draw, stalemate, threefold_repenition, insufficient_material } = game;
+  switch (true) {
+    case checkmate:
+      return `Шах и Мат`;
+    case draw:
+    case stalemate:
+    case threefold_repenition:
+    case insufficient_material:
+      return `Ничья`;
+    default:
+      return 'Игра Окончена';
+  }
 }
 
 export default BurgerMenu;
