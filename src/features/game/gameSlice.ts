@@ -28,6 +28,8 @@ export const GameSlice = createSlice({
             }
         },
         
+        exitGame: () => initialState,
+        
         move: (state, action: PayloadAction<ChessMove>) => {
             const { from, to, promotion } = action.payload
             
@@ -53,7 +55,7 @@ export const GameSlice = createSlice({
     }
 });
 
-export const { move, initGame, unPromotion } = GameSlice.actions;
+export const { move, initGame, exitGame, unPromotion } = GameSlice.actions;
 
 
 // // The function below is called a selector and allows us to select a value from

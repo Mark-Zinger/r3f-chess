@@ -32,7 +32,7 @@ const PromotionButton = (props:PromotionButtonProps) => {
   
   useEffect(():any => {
     setColor(playerColor)
-    return () => setTimeout(() => setColor(playerColor), 500 )
+    return () => {}
   },[])
   
   return (

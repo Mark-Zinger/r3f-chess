@@ -17,7 +17,8 @@ export type PromotionType = 'n' | 'b' | 'r' | 'q' ;
 export type ChessMove = {
   from: chessCordType,
   to: chessCordType,
-  promotion?: PromotionType
+  promotion?: PromotionType,
+  san?: string
 }
 
 export default GameState

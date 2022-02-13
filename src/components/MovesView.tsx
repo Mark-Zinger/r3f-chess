@@ -5,6 +5,9 @@ import {chessCordType, getPosFromChessCord} from '../helpers/BoardHelpers';
 import {selectSelected, unSelected} from "../features/selectedSlice";
 import normalizePromotionMoves from "../helpers/normalizePromotionMoves";
 import {move} from "../features/game/gameSlice";
+import colors from "style/colors";
+import {useEffect, useState} from "react";
+import {useControls} from "leva";
 
 const MovesView = () => {
 
@@ -18,15 +21,16 @@ const MovesView = () => {
     return (
         <> 
         {   hover.target != selected.target &&
-            normalizePromotionMoves(hover.moves).map(({to}, index) => (
-                <ViewSqare key={index} chessPosition={to} />
+            normalizePromotionMoves(hover.moves).map(({to, san}, index) => (
+                <ViewSqare key={index} chessPosition={to} san={san}/>
             ))
         }
         {   selected.target &&
-            normalizePromotionMoves(selected.moves).map(({to}, index) => (
+            normalizePromotionMoves(selected.moves).map(({to, san}, index) => (
               <ViewSqare
                 key={index}
                 chessPosition={to}
+                san={san}
                 onClick={() => {
                     dispatch(move({ from: selected.target as chessCordType, to }))
                     dispatch(unSelected())
@@ -38,15 +42,26 @@ const MovesView = () => {
     );
 };
 
-const ViewSqare = ({chessPosition, onClick}:IViewSqare) => {
+const ViewSqare = ({chessPosition, onClick, san}:IViewSqare) => {
 
     const position = getPosFromChessCord(chessPosition);
     position.y = 0.001;
-
+    
+    
+    
+    const [color, setColor] = useState('#ff0000')
+    
+    
+    useEffect(()=> {
+        switch (san) {
+            case "O-O":
+            case "O-O-O": setColor("#0066ff")
+        }
+    },[san])
 
     return (
       <Square
-        color='#ff0000'
+        color={color}
         position={position}
         opacity={0.7}
         onClick={onClick}
@@ -56,7 +71,8 @@ const ViewSqare = ({chessPosition, onClick}:IViewSqare) => {
 
 interface IViewSqare {
     chessPosition: string,
-    onClick?: (to: any) => any
+    onClick?: (to: any) => any,
+    san?: string
 }
 
 

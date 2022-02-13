@@ -30,7 +30,7 @@ function AppCanvas () {
             >
                 <color attach='background' args={['#07070d']} />
                 <fog attach='fog' args={['#191920', 0, 55]} />
-                <Environment preset='city' />
+                {/*<Environment preset='city' />*/}
                 <Provider store={store}>
                     <SelectProvider>
                         <ambientLight />
@@ -43,7 +43,7 @@ function AppCanvas () {
                         <Effects/>
                     </SelectProvider>
                 </Provider>
-                <Stats/>
+                {/*<Stats/>*/}
             </Canvas>
         </>
 

@@ -5,6 +5,7 @@ import {store} from "./app/store";
 import Index from "./components/ui-components/PromotionModal";
 import styled from "styled-components";
 import MainMenu from "./components/ui-components/MainMenu";
+import CanvasInterface from "./components/CanvasInterface";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Index/>
           <Suspense fallback={'Loading ...'}>
               <Canvas />
+              <CanvasInterface/>
           </Suspense>
       </AppContainer>
     </Provider>
