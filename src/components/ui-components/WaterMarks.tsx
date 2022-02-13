@@ -10,7 +10,7 @@ const WaterMarks = () => {
         video from <a target="_blank" href="https://www.youtube.com/watch?v=vE6wWaoEVQA&ab_channel=EugeneBelsky">Eugene Belsky</a>
       </VideoFrom>
       <CreatedBy>
-        <a target="_blank" href="https://www.youtube.com/watch?v=vE6wWaoEVQA&ab_channel=EugeneBelsky">source code</a>
+        <a target="_blank" href="https://github.com/Mark-Zinger/r3f-chess">source code</a>
         <br/>
         created by <a target="_blank" href="https://github.com/Mark-Zinger">Mark Zinger</a>
       </CreatedBy>
