@@ -36,7 +36,7 @@ export function getChessPosition(i: number):chessCordType {
 }
 
 export function getNormalizePosition({x,y}: xyPoint): threeVectorPoint {
-    return [x - 3.5, 0, y - 3.5];
+    return [ -x + 3.5, 0, y - 3.5];
 }
 
 export function getNormPosFromIndex(i: number): threeVectorPoint {
@@ -52,8 +52,6 @@ export function getPosFromChessCord(chessCord: chessCordType): THREE.Vector3 {
 export interface noralizedBoardSqare extends ChessPiece {
     position: chessCordType
 }
-
-
 
 export function getNormalizeBoard (chessBoard: ChessBoardType):noralizedBoardSqare[] {
     const normalizeBpard = chessBoard
