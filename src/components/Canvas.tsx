@@ -33,11 +33,11 @@ function AppCanvas () {
                 {/*<Environment preset='city' />*/}
                 <Provider store={store}>
                     <SelectProvider>
+                        <ChessFigures />
                         <ambientLight />
                         <pointLight position={[10, 10, 10]} castShadow />
                         <pointLight position={[-10, 10, -10]} castShadow/>
                         <CameraControls />
-                        <ChessFigures />
                         <Board />
                         <MovesView/>
                         <Effects/>

@@ -1,10 +1,10 @@
 import styled, {css} from "styled-components";
-import {col} from "style/utils";
+import {motion} from "framer-motion";
 
 
 
 
-const Container = styled.div(
+const Container = styled(motion.div)(
   ({theme}) => css`
     background: ${theme.colors.primaryBlack};
     position: fixed;
