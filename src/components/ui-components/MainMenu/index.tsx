@@ -3,6 +3,7 @@ import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 import {initGame, selectGame} from "../../../features/game/gameSlice";
 import {GameMode} from "../../../features/game/GameState";
 import {AnimatePresence} from "framer-motion";
+import WaterMarks from "../WaterMarks";
 
 
 /*
@@ -34,6 +35,7 @@ function MainMenu () {
               
                     </MenuContainer>
                 </Menu>
+                <WaterMarks/>
             </Container>
           }
       </AnimatePresence>

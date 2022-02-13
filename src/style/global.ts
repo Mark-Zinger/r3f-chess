@@ -15,7 +15,11 @@ const GlobalStyle = createGlobalStyle<{ theme: ITheme }>(
         margin: 0;
         padding: 0;
     }
-
+    
+    a {
+        color: inherit;
+    }
+    
     ${includeFontsAll()}
     ${includeTypography()}
     `

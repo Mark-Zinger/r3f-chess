@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 const Container = styled(motion.div)(
   ({theme}) => css`
     background: ${theme.colors.primaryBlack};
+    color: ${theme.colors.white};
     position: fixed;
     left: 0; top: 0;
     height: 100vh;
