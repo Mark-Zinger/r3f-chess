@@ -1,13 +1,20 @@
 import {CanvasInterfaceWrapper,CanvasInterfaceContainer} from "./styled";
 import BurgerButton from "./BurgerButton";
 import StatusBar from "./StatusBar";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import BurgerMenu from "./BurgerMenu";
-import burgerMenu from "./BurgerMenu";
+import {useAppSelector} from "../../app/hooks";
+import {selectGame} from "../../features/game/gameSlice";
 
 function CanvasInterface () {
   const [isBurgerOpen, setIsBurgerOpen] = useState<boolean>(false);
   const setBurgerClose = () => setIsBurgerOpen(false)
+  
+  const {game_over} = useAppSelector(selectGame)
+  
+  useEffect(()=>{
+    if(game_over) setIsBurgerOpen(true);
+  },[game_over])
   
   return (
     <CanvasInterfaceWrapper>
