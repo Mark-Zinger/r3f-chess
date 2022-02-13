@@ -11,7 +11,7 @@ import SelectProvider from "../providers/SelectProvider";
 import Effects from "./Effects";
 import {useContext} from "react";
 import {ThemeContext} from "styled-components";
-import { Loader } from "@react-three/drei"
+import { Loader, Stats } from "@react-three/drei"
 
 
 
@@ -29,7 +29,7 @@ function AppCanvas () {
               shadows={true}
             >
                 <color attach='background' args={['#07070d']} />
-                <fog attach='fog' args={['#191920', 0, 35]} />
+                <fog attach='fog' args={['#191920', 0, 55]} />
                 <Environment preset='city' />
                 <Provider store={store}>
                     <SelectProvider>
@@ -43,6 +43,7 @@ function AppCanvas () {
                         <Effects/>
                     </SelectProvider>
                 </Provider>
+                <Stats/>
             </Canvas>
         </>
 

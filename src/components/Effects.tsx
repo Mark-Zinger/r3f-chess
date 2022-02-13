@@ -1,9 +1,8 @@
-import {EffectComposer, Outline, DepthOfField} from "@react-three/postprocessing";
+import {EffectComposer, Outline, SMAA} from "@react-three/postprocessing";
 import {useContext, useEffect} from "react";
 import {SelectContext} from "../providers/SelectProvider";
-import {useAppSelector} from "../app/hooks";
-import {selectGame} from "../features/game/gameSlice";
-
+//@ts-ignore
+import { BlendFunction } from 'postprocessing'
 
 
 
@@ -19,11 +18,13 @@ const Effects = () => {
         blur
         //@ts-ignore
         selection={selection}
-        // visibleEdgeColor="white"
-        hiddenEdgeColor={0xffffff}
+        blendFunction={BlendFunction.ALPHA}
+        visibleEdgeColor={ 0xffffff }
+        hiddenEdgeColor={ 0xffffff }
         edgeStrength={100}
-        width={1000}
+        width={1500}
       />
+      <SMAA/>
     </EffectComposer>
   )
 }
