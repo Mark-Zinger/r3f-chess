@@ -16,7 +16,7 @@
 ```
 
 ## Вот так выглядит главное меню:
-![Main Menu](https://j.gifs.com/qQ8022.gif)
+<img src="https://j.gifs.com/qQ8022.gif">
 
 
  * Пока доступент только режим локального мультиплеера
@@ -27,16 +27,16 @@
  Хочу реализовать матч-мейкин (хз зачем, просто хочу)
 
 ## Игровой процесс:
-![Game play](https://j.gifs.com/w0gDRw.gif)
+<img src="https://j.gifs.com/w0gDRw.gif">
  
 ## Реализация рокировки (CHESS Castling)
-![Castling](https://j.gifs.com/WPByjg.gif)
+<img src="https://j.gifs.com/WPByjg.gif">
 
 ## "Превращение" пешки (CHESS Promotion)
-![Promotion](https://j.gifs.com/lR6oD6.gif)
+<img src="https://j.gifs.com/lR6oD6.gif">
 
 ## Шах и Мат (CHESS Checkmate)
-![Checkmate](https://j.gifs.com/EqQMGN.gif)
+<img src="https://j.gifs.com/EqQMGN.gif">
 
 Так же прописаны правила для ничьи и пата:
 
@@ -46,7 +46,7 @@
 * Невозможно поставить мат, объявлена ничья.
 
 ### Ну вот и всё : ) 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![funny cat](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 #### Если понравился проект, поддержи звездой ⭐
 
