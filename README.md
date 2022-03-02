@@ -16,7 +16,8 @@
 ```
 
 ## Вот так выглядит главное меню:
-<img src="https://j.gifs.com/qQ8022.gif">
+https://user-images.githubusercontent.com/61137409/156408176-f5cd3ab6-6c5d-488e-a6ae-98982807b570.mp4
+
 
 
  * Пока доступент только режим локального мультиплеера
