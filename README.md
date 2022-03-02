@@ -1,44 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+##R3F CHESS 3D / 3D Шахматы
 
-## Available Scripts
+С детства люблю играть в шахматы. 
 
-In the project directory, you can run:
+Этот проект написан с использованием [React.js](https://reactjs.org/), [Three.js](https://threejs.org/) и [react-three-fiber](https://docs.pmnd.rs/react-three-fiber).
 
-### `yarn start`
+###Цель проекта:
+Создать красивое приложение в котором я со своими друзьяшками-барабашками смогу поиграть в шахматы, как локально так и по интернету.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Как развернуть проект у себя
+```shell
+    npm install
+    npm run start
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+###Вот так выглядит главное меню:
+![Main Menu](https://j.gifs.com/qQ8022.gif)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ * Пока доступент только режим локального мультиплеера
+ * На очереди написание искусственного интеллекта и создание бекэнда
 
-### `yarn build`
+ Бекэнд планирую написать на Node.js(Express), WebSokets и MongoDB
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ Хочу реализовать матч-мейкин (хз зачем, просто хочу)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+###Игровой процесс:
+![Game play](https://j.gifs.com/w0gDRw.gif)
+ 
+### Реализация рокировки (CHESS Castling)
+![Castling](https://j.gifs.com/WPByjg.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### "Превращение" пешки (CHESS Promotion)
+![Promotion](https://j.gifs.com/lR6oD6.gif)
 
-### `yarn eject`
+### Шах и Мат (CHESS Checkmate)
+![Checkmate](https://j.gifs.com/EqQMGN.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Так же прописаны правила для ничьи и пата:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* По правилу 50 ходов была объявлена ничья.
+* Достигнута патовая ситуация, объявлена ничья.
+* Троекратное повторение позиции, объявлена ничья.
+* Невозможно поставить мат, объявлена ничья.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Ну вот и всё : ) 
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Если понравился проект, поддержи звездой ⭐
 
-## Learn More
+### Титры
+ - Автор идеи, автор "сценария"  [Mark Zinger](https://github.com/Mark-Zinger)
+ - Дизайн вдохновлён [svinogradov.art](https://svinogradov.art/)
+ - Видео из главного меню, [Eugene Belsky](https://www.youtube.com/watch?v=vE6wWaoEVQA&ab_channel=EugeneBelsky)
+ - 3D-модели, [VioletBoom](https://sketchfab.com/3d-models/chess-set-lp-b5d2b1a6b97046e496bf469feb838354)
+ - Создано с помощью [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+❤️Cпасибо за моральную поддержу моим друзьям, Андрею и Глебу. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
