@@ -1,21 +1,21 @@
-##R3F CHESS 3D / 3D Шахматы
+## R3F CHESS 3D / 3D Шахматы
 
 С детства люблю играть в шахматы. 
 
 Этот проект написан с использованием [React.js](https://reactjs.org/), [Three.js](https://threejs.org/) и [react-three-fiber](https://docs.pmnd.rs/react-three-fiber).
 
-###Цель проекта:
+### Цель проекта:
 Создать красивое приложение в котором я со своими друзьяшками-барабашками смогу поиграть в шахматы, как локально так и по интернету.
 
 [Пощупать можно здесь](https://r3f-chess.vercel.app/)
 
-### Как развернуть проект у себя
+## Как развернуть проект у себя
 ```shell
     npm install
     npm run start
 ```
 
-###Вот так выглядит главное меню:
+## Вот так выглядит главное меню:
 ![Main Menu](https://j.gifs.com/qQ8022.gif)
 
 
@@ -26,16 +26,16 @@
 
  Хочу реализовать матч-мейкин (хз зачем, просто хочу)
 
-###Игровой процесс:
+## Игровой процесс:
 ![Game play](https://j.gifs.com/w0gDRw.gif)
  
-### Реализация рокировки (CHESS Castling)
+## Реализация рокировки (CHESS Castling)
 ![Castling](https://j.gifs.com/WPByjg.gif)
 
-### "Превращение" пешки (CHESS Promotion)
+## "Превращение" пешки (CHESS Promotion)
 ![Promotion](https://j.gifs.com/lR6oD6.gif)
 
-### Шах и Мат (CHESS Checkmate)
+## Шах и Мат (CHESS Checkmate)
 ![Checkmate](https://j.gifs.com/EqQMGN.gif)
 
 Так же прописаны правила для ничьи и пата:
@@ -45,7 +45,7 @@
 * Троекратное повторение позиции, объявлена ничья.
 * Невозможно поставить мат, объявлена ничья.
 
-#### Ну вот и всё : ) 
+### Ну вот и всё : ) 
 ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 #### Если понравился проект, поддержи звездой ⭐
