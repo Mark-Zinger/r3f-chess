@@ -39,7 +39,9 @@ https://user-images.githubusercontent.com/61137409/156410054-85f753d8-312a-4e95-
 
 
 ## Шах и Мат (CHESS Checkmate)
-<img src="https://j.gifs.com/EqQMGN.gif">
+https://user-images.githubusercontent.com/61137409/156410762-cae68a6e-f581-4922-9128-9b5430edde08.mp4
+
+
 
 Так же прописаны правила для ничьи и пата:
 
