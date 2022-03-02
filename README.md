@@ -56,7 +56,7 @@ https://user-images.githubusercontent.com/61137409/156410762-cae68a6e-f581-4922-
 #### Если понравился проект, поддержи звездой ⭐
 
 ### Титры
- - Автор идеи, автор "сценария"  [Mark Zinger](https://github.com/Mark-Zinger)
+ - Автор  [Mark Zinger](https://github.com/Mark-Zinger)
  - Дизайн вдохновлён [svinogradov.art](https://svinogradov.art/)
  - Видео из главного меню, [Eugene Belsky](https://www.youtube.com/watch?v=vE6wWaoEVQA&ab_channel=EugeneBelsky)
  - 3D-модели, [VioletBoom](https://sketchfab.com/3d-models/chess-set-lp-b5d2b1a6b97046e496bf469feb838354)
