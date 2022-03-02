@@ -62,6 +62,6 @@ https://user-images.githubusercontent.com/61137409/156410762-cae68a6e-f581-4922-
  - 3D-модели, [VioletBoom](https://sketchfab.com/3d-models/chess-set-lp-b5d2b1a6b97046e496bf469feb838354)
  - Создано с помощью [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
 
-❤️Cпасибо за моральную поддержу моим друзьям, Андрею и Глебу. 
+❤️Cпасибо за моральную поддержку моим друзьям, Андрею и Глебу. 
 
 
