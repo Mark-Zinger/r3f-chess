@@ -2,12 +2,12 @@
 
 С детства люблю играть в шахматы. 
 
-Этот проект написан с использованием [React.js](https://reactjs.org/), [Three.js](https://threejs.org/) и [react-three-fiber](https://docs.pmnd.rs/react-three-fiber).
+Этот проект написан с использованием [React.js](https://reactjs.org/), [Chess.js](https://github.com/jhlywa/chess.js), [Three.js](https://threejs.org/) и [React Three Fiber](https://docs.pmnd.rs/react-three-fiber).
 
 ### Цель проекта:
 Создать красивое приложение в котором я со своими друзьяшками-барабашками смогу поиграть в шахматы, как локально так и по интернету.
 
-[Пощупать можно здесь](https://r3f-chess.vercel.app/)
+Пощупать можно [здесь](https://r3f-chess.vercel.app/)
 
 ## Как развернуть проект у себя
 ```shell
