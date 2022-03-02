@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/61137409/156408176-f5cd3ab6-6c5d-488e-
  Хочу реализовать матч-мейкин (хз зачем, просто хочу)
 
 ## Игровой процесс:
-<img src="https://j.gifs.com/w0gDRw.gif">
+https://user-images.githubusercontent.com/61137409/156408987-6ce756f8-b3d4-46a3-bd57-dd27eb038415.mp4
  
 ## Реализация рокировки (CHESS Castling)
 <img src="https://j.gifs.com/WPByjg.gif">
