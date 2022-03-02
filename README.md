@@ -34,7 +34,9 @@ https://user-images.githubusercontent.com/61137409/156408987-6ce756f8-b3d4-46a3-
 <img src="https://j.gifs.com/WPByjg.gif">
 
 ## "Превращение" пешки (CHESS Promotion)
-<img src="https://j.gifs.com/lR6oD6.gif">
+https://user-images.githubusercontent.com/61137409/156410054-85f753d8-312a-4e95-a62f-f191218893ed.mp4
+
+
 
 ## Шах и Мат (CHESS Checkmate)
 <img src="https://j.gifs.com/EqQMGN.gif">
